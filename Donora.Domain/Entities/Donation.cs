@@ -18,6 +18,12 @@ public sealed class Donation : AggregateRoot<Guid>
 
     public string? Message { get; set; }
 
+    
+    public string? PaymentMethod { get; set; }
+
+
+    public string? Message { get; set; }
+
     public DonationStatus Status { get; set; }
 
     public DateTime CreatedAt { get; set; }
