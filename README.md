@@ -47,6 +47,13 @@ Fundora is an open-source project. Anyone can use, modify, and extend the platfo
 
 Contributions are welcome. Feel free to submit issues, feature requests, or pull requests to help improve Fundora.
 
+## Sponsorship
+
+If you find Fundora useful, please consider sponsoring the project. Your support helps us maintain the platform, improve existing features, develop new capabilities, and ensure the long-term sustainability of the project.
+
+We appreciate the support of individuals, organizations, and businesses that believe in open-source software and transparent donation management.
+
+
 ## License
 
 This project is licensed under the MIT License.
