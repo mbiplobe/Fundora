@@ -1,8 +1,6 @@
 
 using Donora.Infrastructure.EF.Models;
 
-namespace Donora.Infrastructure.EF.Queries;
-
 internal static class Extensions
 {
     public static UserEntityDto AsDto(this UserReadModel readModel)

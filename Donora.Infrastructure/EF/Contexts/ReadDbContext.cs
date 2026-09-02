@@ -9,8 +9,8 @@ internal sealed class ReadDbContext : DbContext
     public DbSet<DonorReadModel> Donors => Set<DonorReadModel>();
     public DbSet<CampaignReadModel> Campaigns => Set<CampaignReadModel>();
     public DbSet<DonationReadModel> Donations => Set<DonationReadModel>();
+    public DbSet<UserReadModel> Users => Set<UserReadModel>();
     public DbSet<DonationTransactionReadModel> DonationTransactions => Set<DonationTransactionReadModel>();
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(

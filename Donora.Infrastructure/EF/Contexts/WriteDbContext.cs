@@ -1,30 +1,49 @@
-using Donora.Infrastructure.EF.Configurations;
+using Donora.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Donora.Infrastructure.EF.Contexts;
 
 internal sealed class WriteDbContext : DbContext
 {
-    public DbSet<BeneficiaryConfiguration> BeneficiaryConfigurations { get; set; }
-    public DbSet<CampaignBeneficiaryConfiguration> CampaignBeneficiaryConfigurations { get; set; }
-    public DbSet<CampaignConfiguration> CampaignConfigurations { get; set; }
-    public DbSet<CampaignDocumentConfiguration> CampaignDocumentConfigurations { get; set; }
-    public DbSet<CampaignExpenseConfiguration> CampaignExpenseConfigurations { get; set; }
-    public DbSet<DonationConfiguration> DonationConfigurations { get; set; }
-    public DbSet<DonationReceiptConfiguration> DonationReceiptConfigurations { get; set; }
-    public DbSet<DonationTransactionConfiguration> DonationTransactionConfigurations { get; set; }
-    public DbSet<DonorConfiguration> DonorConfigurations { get; set; }
-    public DbSet<OrganizationConfiguration> OrganizationConfigurations { get; set; }
-
-
-    public WriteDbContext(DbContextOptions<WriteDbContext> options)
+    public WriteDbContext(
+        DbContextOptions<WriteDbContext> options)
         : base(options)
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public DbSet<UserEntity> Users => Set<UserEntity>();
+
+    public DbSet<Organization> Organizations => Set<Organization>();
+
+    public DbSet<Campaign> Campaigns => Set<Campaign>();
+
+    public DbSet<Beneficiary> Beneficiaries => Set<Beneficiary>();
+
+    public DbSet<CampaignBeneficiary> CampaignBeneficiaries
+        => Set<CampaignBeneficiary>();
+
+    public DbSet<CampaignDocument> CampaignDocuments
+        => Set<CampaignDocument>();
+
+    public DbSet<CampaignExpense> CampaignExpenses
+        => Set<CampaignExpense>();
+
+    public DbSet<Donor> Donors => Set<Donor>();
+
+    public DbSet<Donation> Donations => Set<Donation>();
+
+    public DbSet<DonationTransaction> DonationTransactions
+        => Set<DonationTransaction>();
+
+    public DbSet<DonationReceipt> DonationReceipts
+        => Set<DonationReceipt>();
+
+    protected override void OnModelCreating(
+        ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(
             typeof(WriteDbContext).Assembly);
+
+        base.OnModelCreating(modelBuilder);
     }
 }
