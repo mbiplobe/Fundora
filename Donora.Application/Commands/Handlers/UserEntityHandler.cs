@@ -1,32 +1,37 @@
 
+using Donora.Domain.Entities;
+using Donora.Domain.Repositories;
 using Donora.Shared.Abstractions.Commands;
 
-internal sealed class CreateUserEntityHandler : ICommandHandler<CreateUserCommand>
+internal sealed class CreateUserEntityHandler : ICommandHandler<SignUpCommand>
 {
-    private readonly IUserEntityRepository _repository;
+    private readonly IUserRepository _repository;
 
-    public CreateUserEntityHandler(IUserEntityRepository repository)
+    public CreateUserEntityHandler(IUserRepository repository)
         => _repository = repository;
 
-    public async Task HandleAsync(CreateUserCommand command)
+    public async Task HandleAsync(SignUpCommand command)
     {
 
         var Id = EntityID.NewId();
 
-        var fullName = new FullName(command.FirstName, command.MiddleName, command.LastName);
-        var email = new Email(command.Email);
-        var mobile = new Phone(command.Mobile);
-        var password = new Password(command.Password);
+        // var fullName = new FullName(command.FirstName, command.MiddleName, command.LastName);
+        // var email = new Email(command.Email);
+        // var mobile = new Phone(command.Mobile);
+        // var password = new Password(command.Password);
 
         var user = new UserEntity(
             Id,
-            fullName,
-            email,
-            mobile,
-            password
+            command.FirstName,
+            command.LastName,
+            command.Email,
+            command.Mobile,
+            command.Password,
+            command.MiddleName
         );
         await _repository.AddAsync(user);
     }
 
+   
 }
 
