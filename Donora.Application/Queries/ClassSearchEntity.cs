@@ -1,8 +1,8 @@
 
-using Donora.Shared.Abstractions.Queries;
+// using Donora.Shared.Abstractions.Queries;
 
 
-public class GetClassById : IQuery<ClassEntityDto>
-{
-    public long Id { get; set; }
-}
+// public class GetClassById : IQuery<ClassEntityDto>
+// {
+//     public long Id { get; set; }
+// }

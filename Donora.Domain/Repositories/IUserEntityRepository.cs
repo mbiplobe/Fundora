@@ -1,9 +1,9 @@
 
-    public interface IUserEntityRepository
-    {
-        Task<UserEntity?> GetAsync(EntityID id);
+    // public interface IUserEntityRepository
+    // {
+    //     Task<UserEntity?> GetAsync(EntityID id);
 
-        Task AddAsync(UserEntity userEntity);
-        Task UpdateAsync(UserEntity userEntity);
-        Task DeleteAsync(UserEntity userEntity);
-    }
+    //     Task AddAsync(UserEntity userEntity);
+    //     Task UpdateAsync(UserEntity userEntity);
+    //     Task DeleteAsync(UserEntity userEntity);
+    // }

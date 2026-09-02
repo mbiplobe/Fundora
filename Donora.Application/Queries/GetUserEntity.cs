@@ -1,6 +1,6 @@
-using Donora.Shared.Abstractions.Queries;
+// using Donora.Shared.Abstractions.Queries;
 
-public class GetUserEntity : IQuery<UserEntityDto>
-{
-    public Guid Id { get; set; }
-}
+// public class GetUserEntity : IQuery<UserEntityDto>
+// {
+//     public Guid Id { get; set; }
+// }
