@@ -11,6 +11,7 @@ internal sealed class UserReadModel : BaseModel
     public string Email { get; set; } = string.Empty;
 
     public string Mobile { get; set; } = string.Empty;
+    public string UserName { get; set; } = string.Empty;
 
      public string PasswordHash { get; set; } = string.Empty;
 }

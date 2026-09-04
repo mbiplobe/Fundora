@@ -8,4 +8,5 @@ string? MiddleName,
 string LastName,
 string Email,
 string Mobile,
+string UserName,
 string Password) : ICommand;

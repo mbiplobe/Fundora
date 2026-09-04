@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Donora.Infrastructure.EF.Contexts;
 using Donora.Infrastructure.EF.Options;
-
+using Donora.Infrastructure.Services;
+using Donora.Infrastructure.Repositories;
+using Donora.Domain.Repositories;
 
 namespace Donora.Infrastructure.EF;
 
@@ -15,7 +17,8 @@ internal static class Extensions
         // services.AddScoped<IClassRepository, ClassEntityRepository>();
         // services.AddScoped<ISectionRepository, SectionRepository>();
         // services.AddScoped<IUserEntityRepository, UserEntityRepository>();
-        // services.AddScoped<IUserEntityReadService, UserEntityReadService>();
+        services.AddScoped<IUserRegistrationService, UserRegistrationService>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         var options = configuration.GetSection("DataBaseConnectionString").Get<DataBaseOptions>();
 

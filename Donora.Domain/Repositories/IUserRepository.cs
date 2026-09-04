@@ -1,5 +1,4 @@
 
-
 using Donora.Domain.Entities;
 
 namespace Donora.Domain.Repositories;

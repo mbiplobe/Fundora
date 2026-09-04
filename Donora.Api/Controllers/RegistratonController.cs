@@ -19,7 +19,7 @@ public class RegistratonController : BaseController
     [HttpPost]
     public async Task<IActionResult> SignUp([FromBody] SignUpCommand command)
     {
-        await _commandDispatcher.DispatchAsync((dynamic)command);
+        await _commandDispatcher.DispatchAsync(command);
         return Ok(true);
     }
 

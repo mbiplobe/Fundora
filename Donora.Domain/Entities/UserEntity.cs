@@ -7,6 +7,7 @@ public sealed class UserEntity : AggregateRoot<Guid>
     public string FirstName { get; private set; } = string.Empty;
 
     public string? MiddleName { get; private set; }
+    public string? UserName { get; private set; }
 
     public string LastName { get; private set; } = string.Empty;
 

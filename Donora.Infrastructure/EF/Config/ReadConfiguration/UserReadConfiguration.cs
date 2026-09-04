@@ -21,6 +21,11 @@ internal sealed class UserReadConfiguration
             .HasMaxLength(100)
             .IsRequired();
 
+        builder.Property(x => x.UserName)
+            .HasColumnName("username")
+            .HasMaxLength(50)
+            .IsRequired();
+
         builder.Property(x => x.MiddleName)
             .HasColumnName("middle_name")
             .HasMaxLength(100);
