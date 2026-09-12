@@ -1,4 +1,4 @@
-# Donora — School Management Ecosystem
+# Donora — Donora Ecosystem
 
 Donora is a modern, high-performance school management ecosystem designed to streamline the complexities of educational administration. Built with enterprise-grade software design patterns and a robust technical stack, the platform ensures scalability, strict maintainability, and top-tier transactional performance.
 

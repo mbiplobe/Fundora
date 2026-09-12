@@ -66,6 +66,9 @@ internal sealed class UserConfiguration
         builder.Property(x => x.UpdatedAt)
             .HasColumnName("updated_at");
 
+        builder.HasIndex(x => x.UserName)
+            .IsUnique();
+
         builder.HasIndex(x => x.Email)
             .IsUnique();
 
