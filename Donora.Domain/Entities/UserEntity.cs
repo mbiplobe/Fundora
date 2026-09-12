@@ -35,6 +35,7 @@ public sealed class UserEntity : AggregateRoot<Guid>
         string lastName,
         string email,
         string mobile,
+        string userName,
         string passwordHash,
         string? middleName = null)
     {
@@ -63,7 +64,8 @@ public sealed class UserEntity : AggregateRoot<Guid>
         Mobile = mobile.Trim();
         Id = id;
         PasswordHash = passwordHash;
-
+        UserName = userName.Trim();
+        
         IsActive = true;
         IsEmailVerified = false;
 

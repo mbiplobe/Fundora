@@ -16,16 +16,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("ReactClient", policy =>
-    {
-        policy
-            .WithOrigins("http://localhost:5173")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("ReactClient", policy =>
+//     {
+//         policy
+//             .WithOrigins("http://localhost:5173")
+//             .AllowAnyHeader()
+//             .AllowAnyMethod();
+//     });
+// });
 
 builder.Host.UseSerilog();
 
@@ -40,7 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("ReactClient");
+// app.UseCors("ReactClient");
 
 app.UseShared();
 

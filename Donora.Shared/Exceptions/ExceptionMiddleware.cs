@@ -24,6 +24,9 @@ namespace Donora.Shared.Exceptions;
         }
 
         public static string ToUnderscoreCase(string value)
-            => string.Concat((value ?? string.Empty).Select((x, i) => i > 0 && char.IsUpper(x) && !char.IsUpper(value[i - 1]) ? $"_{x}" : x.ToString())).ToLower();
+        {
+            var normalizedValue = value ?? string.Empty;
+            return string.Concat(normalizedValue.Select((x, i) => i > 0 && char.IsUpper(x) && !char.IsUpper(normalizedValue[i - 1]) ? $"_{x}" : x.ToString())).ToLower();
+        }
     }
 

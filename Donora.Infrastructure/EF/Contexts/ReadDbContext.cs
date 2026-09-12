@@ -5,6 +5,12 @@ namespace Donora.Infrastructure.EF.Contexts;
 
 internal sealed class ReadDbContext : DbContext
 {
+    public ReadDbContext(
+        DbContextOptions<ReadDbContext> options)
+        : base(options)
+    {
+    }
+
     public DbSet<OrganizationReadModel> Organizations => Set<OrganizationReadModel>();
     public DbSet<DonorReadModel> Donors => Set<DonorReadModel>();
     public DbSet<CampaignReadModel> Campaigns => Set<CampaignReadModel>();
@@ -14,7 +20,8 @@ internal sealed class ReadDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(
-            typeof(ReadDbContext).Assembly);
+            typeof(ReadDbContext).Assembly,
+            type => type.Name.EndsWith("ReadConfiguration"));
 
         base.OnModelCreating(modelBuilder);
     }

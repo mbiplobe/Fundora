@@ -42,7 +42,9 @@ internal sealed class WriteDbContext : DbContext
         ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(
-            typeof(WriteDbContext).Assembly);
+            typeof(WriteDbContext).Assembly,
+            type => type.Namespace == "Donora.Infrastructure.EF.Configurations"
+                && !type.Name.EndsWith("ReadConfiguration"));
 
         base.OnModelCreating(modelBuilder);
     }

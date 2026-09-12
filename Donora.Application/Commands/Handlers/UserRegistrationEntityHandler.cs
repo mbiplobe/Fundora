@@ -26,6 +26,7 @@ internal sealed class CreateUserEntityHandler : ICommandHandler<SignUpCommand>
             command.Email,
             command.Mobile,
             command.Password,
+            command.UserName,
             command.MiddleName
         );
 

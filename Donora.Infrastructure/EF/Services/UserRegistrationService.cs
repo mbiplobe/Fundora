@@ -17,15 +17,23 @@ internal sealed class UserRegistrationService : IUserRegistrationService
     {
         try
         {
+            if (string.IsNullOrWhiteSpace(request.Email))
+            {
+                throw new InvalidOperationException("Email is required.");
+            }
+
+            var email = request.Email.Trim().ToLowerInvariant();
+            var mobile = request.Mobile.Trim();
+
             if (await _context.Users
-           .AnyAsync(x => x.Email == request.Email))
+           .AnyAsync(x => x.Email == email))
             {
                 throw new InvalidOperationException(
                     "Email already exists.");
             }
 
             if (await _context.Users
-                .AnyAsync(x => x.Mobile == request.Mobile))
+                .AnyAsync(x => x.Mobile == mobile))
             {
                 throw new InvalidOperationException(
                     "Mobile already exists.");
@@ -37,7 +45,7 @@ internal sealed class UserRegistrationService : IUserRegistrationService
                 throw new InvalidOperationException(
                     "Username already exists.");
             }
-            return new ValidationResponse(true, string.Empty);
+             return new ValidationResponse(true, string.Empty);
         }
         catch (Exception ex)
         {

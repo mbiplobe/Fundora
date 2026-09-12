@@ -15,7 +15,16 @@ internal sealed class UserRepository : IUserRepository
 
     public async Task AddAsync(UserEntity entity)
     {
-        await _dbContext.Users.AddAsync(entity);
+        try
+        {
+            await _dbContext.Users.AddAsync(entity);
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception or log it as needed
+            throw new InvalidOperationException("An error occurred while adding the user.", ex);
+        }
+       // await _dbContext.Users.AddAsync(entity);
     }
 
     public Task UpdateAsync(UserEntity entity)
