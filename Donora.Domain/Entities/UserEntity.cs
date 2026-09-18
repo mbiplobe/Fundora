@@ -24,6 +24,9 @@ public sealed class UserEntity : AggregateRoot<Guid>
     public DateTime CreatedAt { get; private set; }
 
     public DateTime? UpdatedAt { get; private set; }
+    public DonorModel? Donor { get; private set; }= new DonorModel();
+
+
 
     private UserEntity()
     {

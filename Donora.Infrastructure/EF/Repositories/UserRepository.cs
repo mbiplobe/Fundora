@@ -1,7 +1,6 @@
 using Donora.Domain.Entities;
 using Donora.Domain.Repositories;
 using Donora.Infrastructure.EF.Contexts;
-using Microsoft.EntityFrameworkCore;
 
 namespace Donora.Infrastructure.Repositories;
 
@@ -14,37 +13,23 @@ internal sealed class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
 
-public async Task AddAsync(UserEntity entity)
-{
-    try
+    public async Task AddAsync(UserEntity entity)
     {
-        var connection = _dbContext.Database.GetDbConnection();
-
-        Console.WriteLine($"Database: {connection.Database}");
-        Console.WriteLine($"DataSource: {connection.DataSource}");
-        Console.WriteLine($"Connection: {connection.ConnectionString}");
-
-        await _dbContext.Users.AddAsync(entity);
-
-        Console.WriteLine(
-            $"Entity State: {_dbContext.Entry(entity).State}"
-        );
-
-        var rows = await _dbContext.SaveChangesAsync();
-
-        Console.WriteLine($"Affected Rows: {rows}");
+        try
+        {
+            await _dbContext.Users.AddAsync(entity);
+            var rows = await _dbContext.SaveChangesAsync();
+        }
+        catch
+        {
+            throw;
+        }
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.ToString());
-        throw;
-    }
-}
 
-    public   Task UpdateAsync(UserEntity entity)
+    public Task UpdateAsync(UserEntity entity)
     {
         _dbContext.Users.Update(entity);
-       _dbContext.SaveChangesAsync();
+        _dbContext.SaveChangesAsync();
 
         return Task.CompletedTask;
     }
