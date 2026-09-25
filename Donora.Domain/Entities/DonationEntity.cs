@@ -3,7 +3,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class Donation : AggregateRoot<Guid>
+public sealed class DonationEntity : AggregateRoot<Guid>
 {
 
     public Guid CampaignId { get; set; }
@@ -29,7 +29,7 @@ public sealed class Donation : AggregateRoot<Guid>
     public DateTime CreatedAt { get; set; }
 
     // Navigation Properties
-    public Campaign Campaign { get; set; } = null!;
+    // public Campaign Campaign { get; set; } = null!;
 
-    public Donor? Donor { get; set; }
+    // public Donor? Donor { get; set; }
 }

@@ -2,7 +2,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class Organization : AggregateRoot<Guid>
+public sealed class OrganizationEntity : AggregateRoot<Guid>
 {
     public string Name { get; private set; } = string.Empty;
 
@@ -36,11 +36,11 @@ public sealed class Organization : AggregateRoot<Guid>
     public ICollection<Beneficiary> Beneficiaries { get; private set; }
         = new List<Beneficiary>();
 
-    private Organization()
+    private OrganizationEntity()
     {
     }
 
-    public Organization(
+    public OrganizationEntity(
         string name,
         string slug,
         Guid? ownerUserId = null)

@@ -2,7 +2,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class Donor : AggregateRoot<Guid>
+public sealed class DonorEntity : AggregateRoot<Guid>
 {
 
     public Guid? UserId { get; private set; }
@@ -15,14 +15,16 @@ public sealed class Donor : AggregateRoot<Guid>
 
     public DateTime? UpdatedAt { get; private set; }
 
-    public ICollection<Donation> Donations { get; private set; }
-        = new List<Donation>();
+    public UserEntity? User { get; private set; } = new();
 
-    private Donor()
+    public ICollection<DonationEntity> Donations { get; private set; }
+        = new List<DonationEntity>();
+
+    private DonorEntity()
     {
     }
 
-    public Donor(
+    public DonorEntity(
         Guid? userId,
         string? displayName,
         bool isAnonymous = false)

@@ -2,7 +2,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class DonationReceipt : AggregateRoot<Guid>
+public sealed class DonationReceiptEntity : AggregateRoot<Guid>
 {
     public Guid DonationId { get; private set; }
 
@@ -14,11 +14,11 @@ public sealed class DonationReceipt : AggregateRoot<Guid>
 
     public DateTime IssuedAt { get; private set; }
 
-    private DonationReceipt()
+    private DonationReceiptEntity()
     {
     }
 
-    public DonationReceipt(
+    public DonationReceiptEntity(
         Guid donationId,
         string receiptNumber,
         string? receiptUrl = null)

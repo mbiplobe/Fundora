@@ -2,7 +2,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class CampaignDocument : AggregateRoot<Guid>
+public sealed class CampaignDocumentEntity : AggregateRoot<Guid>
 {
 
     public Guid CampaignId { get; private set; }
@@ -17,11 +17,11 @@ public sealed class CampaignDocument : AggregateRoot<Guid>
 
     public DateTime UploadedAt { get; private set; }
 
-    private CampaignDocument()
+    private CampaignDocumentEntity()
     {
     }
 
-    public CampaignDocument(
+    public CampaignDocumentEntity(
         Guid campaignId,
         string documentType,
         string fileName,

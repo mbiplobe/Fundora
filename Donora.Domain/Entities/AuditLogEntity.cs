@@ -2,7 +2,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class AuditLog : AggregateRoot<Guid>
+public sealed class AuditLogEntity : AggregateRoot<Guid>
 {
 
     public Guid? UserId { get; private set; }
@@ -21,11 +21,11 @@ public sealed class AuditLog : AggregateRoot<Guid>
 
     public DateTime CreatedAt { get; private set; }
 
-    private AuditLog()
+    private AuditLogEntity()
     {
     }
 
-    public AuditLog(
+    public AuditLogEntity(
         string action,
         string entityName,
         Guid entityId,

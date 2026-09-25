@@ -4,7 +4,7 @@ using Donora.Shared.Abstractions.Domains;
 
 namespace Donora.Domain.Entities;
 
-public sealed class Campaign : AggregateRoot<Guid>
+public sealed class CampaignEntity : AggregateRoot<Guid>
 {
 
     public Guid OrganizationId { get; private set; }
@@ -49,11 +49,11 @@ public sealed class Campaign : AggregateRoot<Guid>
     public ICollection<CampaignBeneficiary> CampaignBeneficiaries { get; private set; }
         = new List<CampaignBeneficiary>();
 
-    private Campaign()
+    private CampaignEntity()
     {
     }
 
-    public Campaign(
+    public CampaignEntity(
         Guid organizationId,
         string title,
         string slug,
